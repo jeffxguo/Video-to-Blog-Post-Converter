@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pytubefix
+google-generativeai
+python-multipart
+requests
+python-dotenv

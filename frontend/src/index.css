@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+body {
+  @apply bg-gray-50 text-gray-900;
+}
+
+/* Custom overrides for blog content headers to make them pop */
+.prose h2 {
+  @apply text-3xl font-bold text-indigo-700 mt-10 mb-6 border-b-2 border-indigo-100 pb-2;
+}
+
+.prose h3 {
+  @apply text-2xl font-semibold text-gray-800 mt-8 mb-4;
+}
+
+.prose ul {
+  @apply list-disc list-outside ml-6 space-y-2;
+}
+
+.prose li {
+  @apply text-gray-700;
+}
