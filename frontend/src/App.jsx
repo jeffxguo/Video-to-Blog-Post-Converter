@@ -38,6 +38,17 @@ function App() {
     }
   }
 
+  const handleDownload = () => {
+    if (!content) return
+    const element = document.createElement("a")
+    const file = new Blob([content.content_html], { type: 'text/html' })
+    element.href = URL.createObjectURL(file)
+    element.download = "blog-post.html"
+    document.body.appendChild(element)
+    element.click()
+    document.body.removeChild(element)
+  }
+
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
@@ -124,6 +135,18 @@ function App() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div className="flex justify-end">
+              <button
+                onClick={handleDownload}
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+              >
+                <svg className="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download HTML
+              </button>
             </div>
 
             <article className="bg-white shadow sm:rounded-lg p-8 prose prose-indigo max-w-none">
